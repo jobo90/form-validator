@@ -18,7 +18,8 @@ const showSuccess = (input) => {
   formControl.className = 'form-control success';
 }
 
-// Check email is valid
+// Check if email is valid
+// See: https://stackoverflow.com/a/46181/6754086
 const checkEmail = (input) => {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -64,8 +65,8 @@ const getFieldName = (input) => {
 }
 
 // Event listeners
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
+form.addEventListener('submit', function (evt) {
+  evt.preventDefault();
 
   checkRequired([username, email, password, password2]);
   checkLength(username, 3, 15);
